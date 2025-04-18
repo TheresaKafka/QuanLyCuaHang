@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+
+<root>
+    <dependency> 
+ <groupId>junit</groupId> 
+ <artifactId>junit</artifactId> 
+ <version>4.13.2</version>
+ <scope>test</scope> 
+ </dependency> 
+
+</root>
+
