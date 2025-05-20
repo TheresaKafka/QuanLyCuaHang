@@ -9,28 +9,27 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author ACER
  */
 public class LopChung {
+
     public Connection conn;
 
     public LopChung() throws ClassNotFoundException, SQLException {
-
+        String hostname = "localhost";
+        String sqlInstanceName = "DESKTOP-9VDTUVN"; //computer name 
+        String sqlDatabase = "QLCuaHang";  //sql server database name
+        String sqlUser = "sa";
+        String sqlPassword = "admin"; //passwrod sa account
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        //jdbc:sqlserver://localhost:1433;instance=COMPUTERBERRY;databaseName=Database;
+        String connectURL = "jdbc:sqlserver://localhost:1433;databaseName=QlCuaHang;encrypt=true;trustServerCertificate=true;";
         try {
-            String hostname = "localhost";
-            String sqlInstanceName = "DESKTOP-9VDTUVN"; //computer name 
-            String sqlDatabase = "QLCuaHang";  //sql server database name
-            String sqlUser = "sa";
-            String sqlPassword = "admin"; //passwrod sa account
-
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-
-            //jdbc:sqlserver://localhost:1433;instance=COMPUTERBERRY;databaseName=Database;
-            String connectURL = "jdbc:sqlserver://localhost:1433;databaseName=QuanLyCuaHang;encrypt=true;trustServerCertificate=true;";
-
             conn = DriverManager.getConnection(connectURL, sqlUser, sqlPassword);
             System.out.println("Connect to database successful!!");
         } catch (Exception e) {
@@ -38,10 +37,15 @@ public class LopChung {
         }
     }
 
-    public ResultSet loadDL(String sqlDL) throws SQLException {
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sqlDL);
-        return rs;
+    public ResultSet loadDL(String sqlDL) {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlDL);
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(LopChung.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 
     public void executeNonQuery(String sql) throws SQLException {

@@ -75,7 +75,17 @@ public class DALHoaDon {
         String sqlDem = "select count (*) from HoaDon";
         return (int) lopchung.executeScalar(sqlDem);
     }
-
+    public TableModel dalMatHang()
+   {
+       try {
+            String sqlcbMatHang = "SELECT * FROM MatHang";
+            ResultSet rs = lopchung.loadDL(sqlcbMatHang); // Nếu executeNonQuery trả về ResultSet
+            DefaultTableModel model = ResultSetConverter.buildTableModel(rs);
+            return model;
+        } catch (SQLException e) {
+            return null;
+        }
+   }
     public String DALTimNgayLapAsString(String MaHoaDon) throws SQLException {
     try {
         String sql = "SELECT NgayLap FROM HoaDon WHERE MaHD = '" + MaHoaDon + "'";
