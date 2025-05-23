@@ -7,6 +7,7 @@ package GUI;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,6 +24,7 @@ public class form_DangNhap extends javax.swing.JFrame {
         bllDangNhap = new BLL.BLLDangNhap(this);
         txt_TenTK.setText("admin");
         txt_MatKhau.setText("admin");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

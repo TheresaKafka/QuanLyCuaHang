@@ -8,6 +8,7 @@ import BLL.BLLTaiKhoan;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -26,6 +27,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         initComponents();
         bllTaiKhoan = new BLLTaiKhoan(this);
         loadTaiKhoan();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -55,6 +57,12 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         btn_Xoa = new javax.swing.JButton();
         btn_Sua = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jmnMatHang = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         jButton1.setText("Tìm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +133,68 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
                 btn_LamMoiActionPerformed(evt);
             }
         });
+
+        jMenu1.setText("Hóa Đơn");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        jmnMatHang.setText("Mặt Hàng");
+        jmnMatHang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jmnMatHangMouseClicked(evt);
+            }
+        });
+        jmnMatHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmnMatHangActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jmnMatHang);
+
+        jMenu3.setText("Mã Loại");
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Hóa Đơn Chi Tiết");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu4ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Nhập Hàng");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,6 +306,46 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         loadTaiKhoan();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        frm_HoaDon frm = new frm_HoaDon();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jmnMatHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnMatHangActionPerformed
+        frm_MatHang frm = new frm_MatHang();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jmnMatHangActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
+        new frm_ChiTietHoaDon().setVisible(true);
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        new frm_NhapHang().setVisible(true);
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        frm_HoaDon frm = new frm_HoaDon();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void jmnMatHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmnMatHangMouseClicked
+        frm_MatHang frm = new frm_MatHang();
+        frm.setVisible(true);
+    }//GEN-LAST:event_jmnMatHangMouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        new frm_ChiTietHoaDon().setVisible(true);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+         new frm_NhapHang().setVisible(true);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -282,8 +392,14 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane2;
     public javax.swing.JTable jTable2;
+    private javax.swing.JMenu jmnMatHang;
     public javax.swing.JTextField txt_MK;
     public javax.swing.JTextField txt_MaTK;
     public javax.swing.JTextField txt_TenDN;

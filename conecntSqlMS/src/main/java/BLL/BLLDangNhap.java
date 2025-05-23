@@ -6,7 +6,7 @@ package BLL;
 
 import DAL.DALTaiKhoan;
 import GUI.form_DangNhap;
-import GUI.frm_HoaDon;
+import GUI.frm_ChiTietHoaDon;
 import com.mycompany.conecntsqlms.LopChung;
 import java.sql.SQLException;
 
@@ -27,7 +27,7 @@ public class BLLDangNhap {
         int ketqua = dalTk.dalDangNhap(Dn.txt_TenTK.getText(),Dn.txt_MatKhau.getText());
         if (ketqua>=1)
         {
-            frm_HoaDon HD =new frm_HoaDon();
+            frm_ChiTietHoaDon HD =new frm_ChiTietHoaDon();
             HD.setVisible(true);
         }
     }

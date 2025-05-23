@@ -7,7 +7,7 @@ package BLL;
 import DAL.DALChiTietHoaDon;
 import DAL.DALHoaDon;
 import GUI.form_DangNhap;
-import GUI.frm_HoaDon;
+import GUI.frm_ChiTietHoaDon;
 import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -19,14 +19,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ACER
  */
-public class BLLHoaDon {
+public class BLLChiTietHoaDon {
 
     Vector<Object[]> data = new Vector<>();
     DAL.DALChiTietHoaDon dalChiTietHoaDon;
     DAL.DALHoaDon dalHoaDon;
-    frm_HoaDon hoadon = null;
+    frm_ChiTietHoaDon hoadon = null;
 
-    public BLLHoaDon(frm_HoaDon frm) throws SQLException, ClassNotFoundException {
+    public BLLChiTietHoaDon(frm_ChiTietHoaDon frm) throws SQLException, ClassNotFoundException {
         dalChiTietHoaDon = new DALChiTietHoaDon();
         dalHoaDon = new DALHoaDon();
         hoadon = frm;
@@ -63,7 +63,7 @@ public class BLLHoaDon {
             }
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BLLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BLLChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -77,7 +77,7 @@ public class BLLHoaDon {
         try {
             dalChiTietHoaDon.dalXoa(hoadon.txt_Stt.getText());
         } catch (SQLException ex) {
-            Logger.getLogger(BLLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BLLChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,7 +104,7 @@ public class BLLHoaDon {
             try {
             dalChiTietHoaDon.DalSua(hoadon.txt_Stt.getText(), maHD,maMH,Integer.parseInt(hoadon.txt_SoLuong.getText()));
         } catch (SQLException ex) {
-            Logger.getLogger(BLLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BLLChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
     }
@@ -122,7 +122,7 @@ public class BLLHoaDon {
                 DefaultTableModel model = (DefaultTableModel) dalChiTietHoaDon.DALcb_MatHang(maMH); // Lấy dữ liệu từ DAL
                 hoadon.jTable2.setModel(model); // Đổ dữ liệu lên JTable
             } catch (SQLException ex) {
-                Logger.getLogger(BLLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BLLChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -134,7 +134,7 @@ public class BLLHoaDon {
                 DefaultTableModel model = (DefaultTableModel) dalChiTietHoaDon.DALcb_MaHoaDon(maHD); // Lấy dữ liệu từ DAL
                 hoadon.jTable2.setModel(model); // Đổ dữ liệu lên JTable
             } catch (SQLException ex) {
-                Logger.getLogger(BLLHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BLLChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     public void BllClickCell() {
