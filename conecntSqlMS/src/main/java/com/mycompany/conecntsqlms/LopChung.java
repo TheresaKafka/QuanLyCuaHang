@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,10 @@ public class LopChung {
             System.out.println("Connect to database successful!!");
         } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null,
+                    "Không thể đọc dữ liệu.\nChi tiết: " + e.getMessage(),
+                    "Cảnh báo",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -44,6 +49,10 @@ public class LopChung {
             return rs;
         } catch (SQLException ex) {
             Logger.getLogger(LopChung.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,
+                    "Không thể đọc dữ liệu.\nChi tiết: " + ex.getMessage(),
+                    "Cảnh báo",
+                    JOptionPane.WARNING_MESSAGE);
         }
         return null;
     }
@@ -61,6 +70,10 @@ public class LopChung {
 
         } catch (SQLException e) {
             System.out.println("Lỗi: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,
+                    "Không thể đọc dữ liệu.\nChi tiết: " + e.getMessage(),
+                    "Cảnh báo",
+                    JOptionPane.WARNING_MESSAGE);
         }
 
     }
@@ -78,6 +91,10 @@ public class LopChung {
 
         } catch (SQLException e) {
             System.out.println("Lỗi: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,
+                    "Không thể đọc dữ liệu.\nChi tiết: " + e.getMessage(),
+                    "Cảnh báo",
+                    JOptionPane.WARNING_MESSAGE);
         }
         return result;
     }
