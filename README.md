@@ -1,0 +1,4 @@
+-Đăng Nhập và chỉ có tên đăng nhập phải chứa admin mới được quản lý tài khoản.
+-Quản lý Hóa Đơn , Mặt Hàng, Nhập Hàng.
+-Tự cập nhật số lượng hàng.
+-Tự động tính thành tiền và tổng tiền hóa đơn
