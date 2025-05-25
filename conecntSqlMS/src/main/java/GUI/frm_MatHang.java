@@ -5,6 +5,7 @@
 package GUI;
 
 import BLL.BLLMatHang;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +22,11 @@ public class frm_MatHang extends javax.swing.JFrame {
      */
     BLL.BLLMatHang bLLMatHang;
     public String tenTk;
+    public void KiemTra(String tentk)
+    {
+        if(!tentk.toLowerCase().contains("admin"))
+        this.jMenu7.setVisible(false);
+    }
     public void LoadMatHang()
     {
         
@@ -31,6 +37,7 @@ public class frm_MatHang extends javax.swing.JFrame {
     public frm_MatHang(String tenTK) {
         this.tenTk=tenTK;
         initComponents();
+        KiemTra(tenTK);
         bLLMatHang = new BLLMatHang(this);
         LoadMatHang();
     }
@@ -81,6 +88,7 @@ public class frm_MatHang extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -261,6 +269,14 @@ public class frm_MatHang extends javax.swing.JFrame {
         });
         jMenuBar2.add(jMenu7);
 
+        jMenu8.setText("Đăng Xuất");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu8);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -432,6 +448,21 @@ public class frm_MatHang extends javax.swing.JFrame {
         new frm_MaLoai(tenTk).setVisible(true);
     }//GEN-LAST:event_formMouseClicked
 
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        try {
+            for (java.awt.Window window : java.awt.Window.getWindows()) {
+                if (window instanceof JFrame) {
+                    window.dispose();
+                }
+            }
+            new form_DangNhap().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu8MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -491,6 +522,7 @@ public class frm_MatHang extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;

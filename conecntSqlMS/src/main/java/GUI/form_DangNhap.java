@@ -21,12 +21,13 @@ public class form_DangNhap extends javax.swing.JFrame {
     BLL.BLLDangNhap bllDangNhap;
     public form_DangNhap() throws SQLException, ClassNotFoundException {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bllDangNhap = new BLL.BLLDangNhap(this);
         txt_TenTK.setText("admin");
         txt_MatKhau.setText("admin");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,6 +60,11 @@ public class form_DangNhap extends javax.swing.JFrame {
         });
 
         btn_Exit.setText("Thoát");
+        btn_Exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ExitActionPerformed(evt);
+            }
+        });
 
         txt_MatKhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +165,10 @@ public class form_DangNhap extends javax.swing.JFrame {
     private void txt_MatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_MatKhauActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_MatKhauActionPerformed
+
+    private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_ExitActionPerformed
 
     /**
      * @param args the command line arguments

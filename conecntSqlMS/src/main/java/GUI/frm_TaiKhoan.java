@@ -66,6 +66,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         jButton1.setText("Tìm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +204,14 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
             }
         });
         jMenuBar1.add(jMenu5);
+
+        jMenu2.setText("Đăng Xuất");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -365,6 +374,21 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         new frm_MaLoai(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        try {
+            for (java.awt.Window window : java.awt.Window.getWindows()) {
+                if (window instanceof JFrame) {
+                    window.dispose();
+                }
+            }
+            new form_DangNhap().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -413,6 +437,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;

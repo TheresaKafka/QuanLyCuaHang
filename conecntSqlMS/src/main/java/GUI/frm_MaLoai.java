@@ -5,6 +5,9 @@
 package GUI;
 
 import BLL.BLlMaLoai;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -18,10 +21,16 @@ public class frm_MaLoai extends javax.swing.JFrame {
      */
     BLL.BLlMaLoai bllmaloai;
     public String tenTK;
+    public void KiemTra(String tentk)
+    {
+        if(!tentk.toLowerCase().contains("admin"))
+        this.jMenu9.setVisible(false);
+    }
     public frm_MaLoai(String tenTK) {
         initComponents();
         bllmaloai = new BLlMaLoai(this);
         bllmaloai.BllLoadMaLoai();
+        KiemTra(tenTK);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
@@ -57,6 +66,7 @@ public class frm_MaLoai extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
 
         jMenu1.setText("Hóa Đơn Chi Tiết");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,6 +242,14 @@ public class frm_MaLoai extends javax.swing.JFrame {
         });
         jMenuBar2.add(jMenu10);
 
+        jMenu11.setText("Đăng Xuất");
+        jMenu11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu11MouseClicked(evt);
+            }
+        });
+        jMenuBar2.add(jMenu11);
+
         setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,7 +280,7 @@ public class frm_MaLoai extends javax.swing.JFrame {
                             .addComponent(btn_Xoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_LamMoi)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -386,6 +404,21 @@ public class frm_MaLoai extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu10ActionPerformed
 
+    private void jMenu11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu11MouseClicked
+        try {
+            for (java.awt.Window window : java.awt.Window.getWindows()) {
+                if (window instanceof JFrame) {
+                    window.dispose();
+                }
+            }
+            new form_DangNhap().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(frm_ChiTietHoaDon.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenu11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -431,6 +464,7 @@ public class frm_MaLoai extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

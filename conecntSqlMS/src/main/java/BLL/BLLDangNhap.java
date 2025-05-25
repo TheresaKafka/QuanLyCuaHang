@@ -29,6 +29,7 @@ public class BLLDangNhap {
         {
             frm_ChiTietHoaDon HD =new frm_ChiTietHoaDon(Dn.txt_TenTK.getText());
             HD.setVisible(true);
+            Dn.dispose();
         }
     }
 }
