@@ -27,7 +27,7 @@ public class BLLDangNhap {
         int ketqua = dalTk.dalDangNhap(Dn.txt_TenTK.getText(),Dn.txt_MatKhau.getText());
         if (ketqua>=1)
         {
-            frm_ChiTietHoaDon HD =new frm_ChiTietHoaDon();
+            frm_ChiTietHoaDon HD =new frm_ChiTietHoaDon(Dn.txt_TenTK.getText());
             HD.setVisible(true);
         }
     }

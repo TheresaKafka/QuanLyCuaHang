@@ -20,11 +20,13 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
      * Creates new form frm_TaiKhoan
      */
     BLL.BLLTaiKhoan bllTaiKhoan;
+    public String TenTK;
     public void loadTaiKhoan(){
         bllTaiKhoan.bllLoadTaiKhoan();
     }
-    public frm_TaiKhoan() {
+    public frm_TaiKhoan(String tenTk) {
         initComponents();
+        this.TenTK=tenTk;
         bllTaiKhoan = new BLLTaiKhoan(this);
         loadTaiKhoan();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -57,6 +59,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         btn_Xoa = new javax.swing.JButton();
         btn_Sua = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmnMatHang = new javax.swing.JMenu();
@@ -134,6 +137,8 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("Tài Khoản");
+
         jMenu1.setText("Hóa Đơn");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -161,6 +166,11 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         jMenuBar1.add(jmnMatHang);
 
         jMenu3.setText("Mã Loại");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenu3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu3ActionPerformed(evt);
@@ -205,39 +215,44 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_TenTK)
-                            .addComponent(txt_MaTK)
-                            .addComponent(txt_TenDN)
-                            .addComponent(txt_MK, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn_Thêm, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btn_Xoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btn_Sua)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(btn_LamMoi)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_Tim1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_TenTK)
+                                    .addComponent(txt_MaTK)
+                                    .addComponent(txt_TenDN)
+                                    .addComponent(txt_MK, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btn_Thêm, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btn_Xoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btn_Sua)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(btn_LamMoi)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txt_Tim1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_TenTK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,12 +322,12 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        frm_HoaDon frm = new frm_HoaDon();
+        frm_HoaDon frm = new frm_HoaDon(TenTK);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jmnMatHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmnMatHangActionPerformed
-        frm_MatHang frm = new frm_MatHang();
+        frm_MatHang frm = new frm_MatHang(TenTK);
         frm.setVisible(true);
     }//GEN-LAST:event_jmnMatHangActionPerformed
 
@@ -321,30 +336,34 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        new frm_NhapHang().setVisible(true);
+        new frm_NhapHang(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        frm_HoaDon frm = new frm_HoaDon();
+        frm_HoaDon frm = new frm_HoaDon(TenTK);
         frm.setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jmnMatHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jmnMatHangMouseClicked
-        frm_MatHang frm = new frm_MatHang();
+        frm_MatHang frm = new frm_MatHang(TenTK);
         frm.setVisible(true);
     }//GEN-LAST:event_jmnMatHangMouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-         new frm_NhapHang().setVisible(true);
+         new frm_NhapHang(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        new frm_MaLoai(TenTK).setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -376,7 +395,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_TaiKhoan().setVisible(true);
+                new frm_TaiKhoan("admin").setVisible(true);
             }
         });
     }
@@ -392,6 +411,7 @@ public class frm_TaiKhoan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

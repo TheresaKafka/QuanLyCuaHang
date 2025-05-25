@@ -20,13 +20,16 @@ public class frm_MatHang extends javax.swing.JFrame {
      * Creates new form frm_MatHang
      */
     BLL.BLLMatHang bLLMatHang;
+    public String tenTk;
     public void LoadMatHang()
     {
+        
         bLLMatHang.BLLLoadMatHang();
         bLLMatHang.BllLoaiHang();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
-    public frm_MatHang() {
+    public frm_MatHang(String tenTK) {
+        this.tenTk=tenTK;
         initComponents();
         bLLMatHang = new BLLMatHang(this);
         LoadMatHang();
@@ -86,6 +89,11 @@ public class frm_MatHang extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -381,15 +389,15 @@ public class frm_MatHang extends javax.swing.JFrame {
     }//GEN-LAST:event_cbn_LoaiHangActionPerformed
 
     private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        new frm_HoaDon().setVisible(true);
+        new frm_HoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu3ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        new frm_NhapHang().setVisible(true);
+        
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
@@ -397,19 +405,19 @@ public class frm_MatHang extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu6ActionPerformed
 
     private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
-        new frm_TaiKhoan().setVisible(true);
+        new frm_TaiKhoan(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu7ActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        new frm_HoaDon().setVisible(true);
+        new frm_HoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-       new frm_NhapHang().setVisible(true); 
+       new frm_NhapHang(tenTk).setVisible(true); 
     }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
@@ -417,8 +425,12 @@ public class frm_MatHang extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu6MouseClicked
 
     private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
-        new frm_TaiKhoan().setVisible(true);
+        new frm_TaiKhoan(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu7MouseClicked
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        new frm_MaLoai(tenTk).setVisible(true);
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -450,7 +462,7 @@ public class frm_MatHang extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_MatHang().setVisible(true);
+                new frm_MatHang("admin").setVisible(true);
             }
         });
     }

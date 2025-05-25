@@ -22,6 +22,7 @@ public class frm_NhapHang extends javax.swing.JFrame {
      * Creates new form frm_NhapHang
      */
     BLL.BLLNhapHang bllNhapHang;
+    public String tenTk;
     public void LoadNhapHang()
     {
         bllNhapHang.BllLoadNhapHang();
@@ -32,8 +33,9 @@ public class frm_NhapHang extends javax.swing.JFrame {
             Logger.getLogger(frm_NhapHang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public frm_NhapHang() {
+    public frm_NhapHang(String tenTk) {
         initComponents();
+        this.tenTk=tenTk;
         bllNhapHang = new BLLNhapHang(this);
         LoadNhapHang();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -66,6 +68,7 @@ public class frm_NhapHang extends javax.swing.JFrame {
         btn_Xoa = new javax.swing.JButton();
         btn_Sua = new javax.swing.JButton();
         btn_LamMoi = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -152,6 +155,8 @@ public class frm_NhapHang extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("Nhập Hàng");
+
         jMenu1.setText("Hóa Đơn");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,6 +184,14 @@ public class frm_NhapHang extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Mã Loại");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu3MouseEntered(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Tài Khoản");
@@ -247,15 +260,20 @@ public class frm_NhapHang extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_Sua)
                                 .addGap(14, 14, 14)
-                                .addComponent(btn_LamMoi)))))
+                                .addComponent(btn_LamMoi))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addComponent(jLabel6)
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -275,13 +293,12 @@ public class frm_NhapHang extends javax.swing.JFrame {
                             .addComponent(cb_MatHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_Thêm)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btn_Xoa)
                                 .addComponent(btn_Sua)
-                                .addComponent(btn_LamMoi)))
+                                .addComponent(btn_LamMoi))
+                            .addComponent(btn_Thêm))
                         .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -359,36 +376,44 @@ public class frm_NhapHang extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        new frm_HoaDon().setVisible(true);
+        new frm_HoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        new frm_MatHang().setVisible(true);
+        new frm_MatHang(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        new frm_TaiKhoan().setVisible(true);
+       
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        new frm_HoaDon().setVisible(true);
+        new frm_HoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        new frm_MatHang().setVisible(true);
+        new frm_MatHang(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-         new frm_TaiKhoan().setVisible(true);
+         new frm_TaiKhoan(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        new frm_ChiTietHoaDon().setVisible(true);
+        new frm_ChiTietHoaDon(tenTk).setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        new frm_MaLoai(tenTk).setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3MouseEntered
 
     /**
      * @param args the command line arguments
@@ -420,7 +445,7 @@ public class frm_NhapHang extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_NhapHang().setVisible(true);
+                new frm_NhapHang("admin").setVisible(true);
             }
         });
     }
@@ -439,6 +464,7 @@ public class frm_NhapHang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

@@ -20,9 +20,11 @@ public class frm_ChiTietHoaDon extends javax.swing.JFrame {
     /**
      * Creates new form frm_ChiTietHoaDon
      */
+    public String TenTK; 
     BLL.BLLChiTietHoaDon bllHoaDon;
-    public frm_ChiTietHoaDon() {
+    public frm_ChiTietHoaDon(String tenTK) {
         try {
+            this.TenTK=tenTK;
             initComponents();
             bllHoaDon =new BLLChiTietHoaDon(this);
             loadHD();
@@ -216,6 +218,11 @@ public class frm_ChiTietHoaDon extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Mã Loại");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Tài Khoản");
@@ -398,25 +405,23 @@ public class frm_ChiTietHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-   
-            JFrame frmHoaDon = new frm_NhapHang();
-            frmHoaDon.setVisible(true);
+
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        new frm_HoaDon().setVisible(true);
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-        new frm_MatHang().setVisible(true);
+        new frm_MatHang(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        new frm_TaiKhoan().setVisible(true);
+
     }//GEN-LAST:event_jMenu4ActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
-        JFrame frmHoaDon = new frm_NhapHang();
+        JFrame frmHoaDon = new frm_HoaDon(TenTK);
         frmHoaDon.setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
 
@@ -425,16 +430,20 @@ public class frm_ChiTietHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        new frm_NhapHang().setVisible(true);
+        new frm_MatHang(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        new frm_TaiKhoan().setVisible(true);
+        new frm_TaiKhoan(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        new frm_TaiKhoan().setVisible(true);
+        new frm_NhapHang(TenTK).setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        new frm_MaLoai(TenTK).setVisible(true);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -467,7 +476,7 @@ public class frm_ChiTietHoaDon extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frm_ChiTietHoaDon().setVisible(true);
+                new frm_ChiTietHoaDon("admin").setVisible(true);
             }
         });
     }    
