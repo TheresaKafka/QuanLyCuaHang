@@ -167,7 +167,7 @@ public class form_DangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_MatKhauActionPerformed
 
     private void btn_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ExitActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btn_ExitActionPerformed
 
     /**
