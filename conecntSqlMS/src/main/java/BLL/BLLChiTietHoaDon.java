@@ -156,7 +156,7 @@ public class BLLChiTietHoaDon {
     public void BllTongTien()
     {
         int rowCount = hoadon.jTable2.getRowCount();
-        int tongtien=0;
+        double tongtien=0;
         for(int i=0;i<rowCount;i++)
         {
             String maMH = hoadon.jTable2.getValueAt(i, 2).toString();
@@ -164,7 +164,8 @@ public class BLLChiTietHoaDon {
             int giatien = dalChiTietHoaDon.dalTimGiaTien(maMH);
             int thanhtien = giatien*Integer.parseInt(soLuong);
             tongtien+=thanhtien;
-            hoadon.txt_TongTien.setText(String.valueOf(tongtien));
-        }    
+        }
+        tongtien*=1.05;
+        hoadon.txt_TongTien.setText(String.valueOf(tongtien));
     }
 }
